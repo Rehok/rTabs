@@ -1,8 +1,0 @@
-## Interface: 70300
-## Author: Rehok
-## Version: 1.0.0
-## Title: |cFF00A5FFrTabs|r
-## Notes: Moves tabs on various frames to the edge
-## OptionalDeps: ElvUI
-
-rTabs.lua
