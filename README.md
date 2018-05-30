@@ -3,5 +3,5 @@ Moves tabs on frames and makes them 1 pixel away from each other, Hides various 
 
 This is all WIP so name could change as i add new things or i could adbandon it all together
 
-Please don't actually do any of the stuff in this is all garbage and terrible, Find a better solution :P
+Please don't actually do any of the stuff in this is all garbage and terrible and made at 3am on a bored night, Find a better solution :P
 
