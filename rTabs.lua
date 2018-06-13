@@ -129,6 +129,8 @@ AchievementFrameTab3.ClearAllPoints = DoNothing
 AchievementFrameTab3.SetPoint = DoNothing
 
 -- Guild
+-- Script Created 
+--[[
 GuildFrameTab1:ClearAllPoints()
 GuildFrameTab1:SetPoint("BOTTOMLEFT", GuildFrame, -10, -32)
 GuildFrameTab2:ClearAllPoints()
@@ -139,17 +141,38 @@ GuildFrameTab4:ClearAllPoints()
 GuildFrameTab4:SetPoint("BOTTOMLEFT", GuildFrame, 146, -32)
 GuildFrameTab5:ClearAllPoints()
 GuildFrameTab5:SetPoint("BOTTOMLEFT", GuildFrame, 211, -32)
+]]
 end)
 
+local rGuildScript = function()
+	GuildFrameTab1:ClearAllPoints()
+	GuildFrameTab1:SetPoint("BOTTOMLEFT", GuildFrame, -10, -32)
+	GuildFrameTab2:ClearAllPoints()
+	GuildFrameTab2:SetPoint("BOTTOMLEFT", GuildFrame, 39, -32)
+	GuildFrameTab3:ClearAllPoints()
+	GuildFrameTab3:SetPoint("BOTTOMLEFT", GuildFrame, 95, -32)
+	GuildFrameTab4:ClearAllPoints()
+	GuildFrameTab4:SetPoint("BOTTOMLEFT", GuildFrame, 146, -32)
+	GuildFrameTab5:ClearAllPoints()
+	GuildFrameTab5:SetPoint("BOTTOMLEFT", GuildFrame, 211, -32)
+end
 
  local rTalentScript = function()
-  -- local _, englishClass = UnitClass("player") -- Checking for Hunters so we move Pet Frame
+  local num = 3
+  local _, englishClass = UnitClass("player") -- Checking for Hunters so we move Pet Frame
   if PlayerTalentFrame then
-
+	if englishClass == "HUNTER" then
+		num = 4
+	end
    
     --[[for i=1, 4 do
-      talentTab = _G['PlayerTalentFrameTab'..i]
-      local point, anchor, anchorPoint, x = _G['PlayerTalentFrameTab'..i]:GetPoint()]]
+      talentTab = _G['PlayerTalentFrameTab'..i] -- Store the TalentTabs with their numbers
+      local point, anchor, anchorPoint, x = _G['PlayerTalentFrameTab'..i]:GetPoint() -- Get some info about its location
+		-- Start clearing their anchors and reanchor to where we want
+		talentTab:ClearAllPoints()
+		
+		
+		]]
   PlayerTalentFrameTab1:ClearAllPoints()
   PlayerTalentFrameTab1:SetPoint("BOTTOMLEFT", PlayerTalentFrame, -10, -38)
   PlayerTalentFrameTab2:ClearAllPoints()
@@ -161,6 +184,8 @@ end)
   end
 end
 -- Warboard Frame
+-- Remove Nail and parchment BG's
+-- Make texts white 
 local rWarboardScript = function()
   for i = 1,3 do 
     local choiceFrame = _G["WarboardQuestChoiceFrameOption"..i]
@@ -172,6 +197,8 @@ local rWarboardScript = function()
   end
 end
 
+-- Execute our functions on when other functions are called.
 hooksecurefunc("WarboardQuestChoice_LoadUI", rWarboardScript)
+hooksecurefunc("GuildFrame_LoadUI", rGuildScript)
 -- hooksecurefunc("PlayerTalentFrame_UpdateTabs", rTalentScript) -- Why can  ElvUI use various funcs like this one but i cant ??
 rTabFrame:SetScript("OnUpdate", rTalentScript)
