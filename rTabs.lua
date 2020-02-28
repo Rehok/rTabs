@@ -162,17 +162,9 @@ end
   local _, englishClass = UnitClass("player") -- Checking for Hunters so we move Pet Frame
   if PlayerTalentFrame then
 	if englishClass == "HUNTER" then
-		num = 4
+		PlayerTalentFrameTab1:ClearAllPoints()
+ 		PlayerTalentFrameTab1:SetPoint("BOTTOMLEFT", PlayerTalentFrame, 60, -38)
 	end
-   
-    --[[for i=1, 4 do
-      talentTab = _G['PlayerTalentFrameTab'..i] -- Store the TalentTabs with their numbers
-      local point, anchor, anchorPoint, x = _G['PlayerTalentFrameTab'..i]:GetPoint() -- Get some info about its location
-		-- Start clearing their anchors and reanchor to where we want
-		talentTab:ClearAllPoints()
-		
-		
-		]]
   PlayerTalentFrameTab1:ClearAllPoints()
   PlayerTalentFrameTab1:SetPoint("BOTTOMLEFT", PlayerTalentFrame, -10, -38)
   PlayerTalentFrameTab2:ClearAllPoints()
